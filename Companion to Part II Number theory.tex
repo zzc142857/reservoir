@@ -1,0 +1,222 @@
+%input preamble
+\input{/Users/zhouzhichen/Documents/TeX/Preamble.tex}
+
+\begin{document}
+\title{Companion to Part II Number theory}
+\author{zzc}
+\maketitle
+
+\lhead{Companion to Part II Number theory}
+\rhead{\today}
+
+\begin{abstract}
+    Here are some bookwork questions based on the lecture notes by **** in Michaelmas ****
+    . !: I don't remember.
+\end{abstract}
+\tableofcontents
+
+
+\section{Introduction}
+\begin{question}{1}
+  Is $1$ a prime number? Is $1$ composite? What is the prime counting function $\pi(x)$?
+
+  Show that any integer greater than $1$ has a prime factor.
+
+  Show that there are infinitely many primes.
+
+  Find $\hcf(117,51)$. Show that the Euclid's algorithm terminates and the last non-zero remainder is the highest common factor. Deduce that for natural number $a$ and $b$, $\hcf(a,b)$ is a $\Z$-linear combination of $a$ and $b$.
+
+  State and prove Bezout's theorem. Deduce the Euclid's lemma. Find all solutions to $117 m + 51 n = 3$.
+
+  State and prove the fundamental theorem of arithmetic.
+\end{question}
+
+\begin{question}{2}
+    Let $n$ be a natural number more than $1$, $a$ be an integer. Show that $a$ has a multiplicative inverse modulo $n$ if and only if $a$ is coprime to $n$. Deduce that for $p$ prime, $\Z / p\Z$ is a field.
+
+    What is the multiplicative group modulo $n$? Show that this is indeed a group. What is the Euler's totient function?
+
+    State and prove the Fermat-Euler's theorem.
+\end{question}
+
+\begin{question}{3}
+    State and prove the Chinese remainder theorem. Extend your result to a system of more congruences. 
+    
+    Show that if $m$ and $n$ are coprime natural numbers, then $\Z/mn\Z \cong \Z/m\Z \times \Z/n\Z$. Deduce that for $n = p_1^{\alpha_1}\dots p_k^{\alpha_k}$ factorised into distinct primes, there is ring isomorphism $\Z / n\Z \cong \Z/p_1^{\alpha_1}\Z \times \dots \times \Z / p_k^{\alpha_k} \Z$.
+
+    Show that if $m$ and $n$ are coprime natural numbers, then $(\Z/mn\Z)^\times \cong (\Z/m\Z)^\times \times (\Z/n\Z)^\times$. Deduce that for $n = p_1^{\alpha_1}\dots p_k^{\alpha_k}$ factorised into distinct primes, there is ring isomorphism $(\Z / n\Z)^\times \cong (\Z/p_1^{\alpha_1}\Z)^\times \times \dots \times (\Z / p_k^{\alpha_k} \Z)^\times$.
+\end{question}
+
+\begin{question}{4}
+    Let $f$ be a function between natural numbers. When is $f$ multiplicative? When is $f$ totally multiplicative? Suppose $f$ is multiplicative, show that $F(n) = \Sigma_{d|n} f(d)$ is also multiplicative. Let $d(n)$ be the number of divisors of $n$ and $\sigma(n)$ be the sum of divisors of $n$, deduce that $d$ and $\sigma$ are multiplicative.
+
+    Show that the Euler's totient function $\phi$ is multiplicative but not totally multiplicative.
+
+    Let $p$ be a prime and $k$ be a natural number. What is $\phi(p^k)$? Compute $\Sigma_{d|12} \phi(d)$.
+
+    Let $n$ be a natural number. Show that $\Sigma_{d|n} \phi(d) = n$.
+\end{question}
+
+\begin{question}{1.1}
+	Let $x \in \N$. Show that $x \leq (1 + \frac{\log x}{\log 2})^{\pi(x)}$. Deduce that when $x \geq 8$, we have $\pi(x) \geq \frac{\log x}{2 \log \log x}$.
+\end{question}
+
+\begin{question}{1.2}
+	Let $q$ be an odd prime. Show every prime factor $p$ of $2^q -1$ is congruent to $1$ modulo $q$.
+\end{question}
+
+\begin{question}{1.3}
+	Show that a positive even integer $n$ is perfect if and only if $n = 2^{q-1}(2^q-1)$ for some $q \geq 2$ and $2^q-1$ prime.
+\end{question}
+
+\section{Multiplicative groups}
+\begin{question}{5}
+    Find all solutions to the following congruence equations:
+
+    (i) $x^2 + 2 \equiv_5 0$; (ii) $x^3 + 1 \equiv_7 0$; (iii) $x^2 - 1 \equiv_8 0$.
+
+    Let $f$ be an integer-coefficient polynomial with degree $n$, and the leading coefficient of $f$ is not divisible by prime $p$. ~Show that $f(x) \equiv 0$ has at most $n$ solutions modulo $p$.
+\end{question}
+
+\begin{question}{6}
+    For $p = 7,13$, find the order of each element in $(\Z/p\Z)^\times$, and count the number of elements in each order. Compile your answers in a table.
+
+    What is a primitive root modulo $p$? Show that primitive roots exist for all $p$ prime.
+\end{question}
+
+\begin{question}{7}
+    Let $p > 2$ be a prime and $k \geq 1$. For $y\in \Z$, show that if $x \equiv 1 + p^k y \pmod{p^{k+1}}$, then $x^p \equiv 1 + p^{k+1} y \pmod{p^{k+2}}$. Deduce that $(1+py)^{p^l} \equiv 1 + p^{l+1}y \pmod{p^{l+2}}$ for all $l \geq 0$.
+    
+    Modify the condition to require $p = 2$ and $k \geq 2$. Show that the above result also holds and deduce that $(1 + 4 y)^{2^l} \equiv 1 + 2^{l+2}y \pmod{2^{l+3}}$.
+\end{question}
+
+\begin{question}{8}
+Let $p > 2$ be a prime.  Show that there exists a primitive root $g$ modulo $p$ such that $g^{p-1} \not \equiv 1 \pmod{p^2}$. Show that such $g$ is a primitive root modulo $p^k$ for all $k \geq 1$. Deduce that $(\Z/p^k\Z)^\times$ is cyclic for all $k \geq 1$.
+
+Find the structures of $(\Z/2^k\Z)^\times$ for $k\leq 3$. Let $k \geq 4$.  By considering a surjection from $(\Z/2^k\Z)^\times$ to $(\Z/8\Z)^\times$, show that $(\Z/2^k\Z)^\times$ is non-cyclic. Find a number $g$ such that $g^{2^{k-3}} \not \equiv 1 \pmod{2^{k}}$ for all $k \geq 4$. Deduce that $(\Z/2^k\Z)^\times \cong C_2 \times C_{2^{k-2}}$.
+\end{question}
+
+\section{Quadratic residue}
+\begin{question}{9}
+    Let $a$ be an integer coprime to natural number $n$. When is $a$ a quadratic residue modulo $n$? Find all quadratic residues modulo $5$ and $7$.
+
+    Let $p > 2$ be a prime. By considering $f : (\Z/p\Z)^\times \rightarrow (\Z/p\Z)^\times$ by $x \mapsto x^2$, show that there are exactly $\frac{p-1}{2}$ quadratic residues modulo $p$. By considering a primitive root modulo $p$, show the above result in another method.
+
+    Let $\QR$ and $\QNR$ denote quadratic residue and quadratic non-residue respectively, show that $\QR \times \QR = \QR$, $\QR \times \QNR = \QNR$, and $\QNR \times \QNR = \QR$. Deduce that $\chi :(\Z/p\Z)^\times \rightarrow \{\pm1\}$ by $a \mapsto (\frac{a}{p})$ is a group homomorphism.
+\end{question}
+
+\begin{question}{10}
+    State and prove the Euler's criterion. Deduce that the Legendre symbol modulo $p$ is totally multiplicative. 
+
+    Let $\chi :(\Z/p\Z)^\times \rightarrow \{\pm1\}$ by $a \mapsto (\frac{a}{p})$. Deduce that $\chi$ is a group homomorphism. Deduce that there are exactly $\frac{p-1}{2}$ quadratic residues modulo $p$.
+
+    Show that $\Sigma_{a=1}^{p-1}(\frac{a}{p}) = 0$. Deduce that there are exactly $\frac{p-1}{2}$ quadratic residues modulo $p$.
+
+    Let $p$ be an odd prime. Show that $-1$ is a $\QR$ modulo $p$ if and only if $p \equiv 1 \pmod{4}$.
+\end{question}
+
+\begin{question}{11}
+    Prove Fermat's little theorem.
+
+    Let $a$ be an integer, $p$ be a fixed odd prime. Denote $\langle a \rangle$ to be the unique integer congruent to $a$ that lies in $\{-\frac{p-1}{2},\dots,\frac{p-1}{2}\}$. State and prove Gauss's lemma for $\QR$.
+
+    Let $p$ be an odd prime, show that $(\frac{2}{p}) = (-1)^{\frac{p^2-1}{8}}$.
+\end{question}
+
+\begin{question}{12}
+    State and prove the law of quadratic reciprocity. Find $(\frac{19}{73})$ and $(\frac{34}{97})$.
+
+    Let $p,q$ be odd primes. Suppose $a$ is a natural number such that $p \equiv \pm q \pmod{4a}$. Show that $(\frac{a}{p}) = (\frac{a}{q})$.
+\end{question}
+
+\begin{question}{13}
+    Define the Jacobi symbol. What is $(\frac{a}{1})$?
+
+    Compute $(\frac{1}{15})$, $(\frac{2}{15})$, $(\frac{3}{15})$, and $(\frac{4}{15})$. Show that $(\frac{a}{n}) = 1$ does not imply that $a$ is a quadratic residue modulo $n$. Show that if $(\frac{a}{n}) = -1$, then $a$ is a quadratic non-residue modulo $n$.
+
+    Let $m,n$ be odd numbers, $a,b$ be integers. Show that $(\frac{ab}{n}) = (\frac{a}{n})(\frac{b}{n})$ and $(\frac{a}{mn}) = (\frac{a}{m})(\frac{a}{n})$.
+
+    Let $n$ be an odd number, show that $(\frac{-1}{n}) = (-1)^\frac{n-1}{2}$ and $(\frac{2}{n}) = (-1)^\frac{n^2-1}{8}$.
+
+    State and prove the law of quadratic reciprocity for the Jacobi symbol.
+
+    Find $(\frac{33}{73})$ without using multiplicative properties.
+\end{question}
+
+
+\section{Binary Quadratic Forms}
+\begin{question}{13.5}
+	Assume that every prime congruent to $1$ modulo $4$ is a sum of two squares, show that positive integer $n$ is a sum of two squares if and only if prime factors of $n$ of form $4k+3$ divide $n$ to an even power.
+\end{question}
+
+\begin{question}{14}
+    What is a binary quadratic form $f$? When does $f$ represent integer $n$? What is a unimodular substitution? Show that for $m,n$ coprime integers, there exists $r,s$ such that $\begin{pmatrix}
+        m & n \\ r & s
+    \end{pmatrix} \in \SL_2(\Z)$.
+
+    When are two binary quadratic forms equivalent? jShow that equivalent binary quadratic forms represent the same numbers, i.e. if $f \sim f'$, then $\im f = \im f'$. 
+
+    Show that the equivalence of binary quadratic forms is indeed an equivalence relation.
+\end{question}
+
+\begin{question}{15}
+    What is the discriminant of a binary quadratic form? Compute the discriminant for the following forms: $(1,0,1)$, $(4,12,9)$, $(1,0,0)$, $(4,12,10)$, $(2,0,2)$, $(1,0,6)$, $(2,0,3)$.
+
+    Show that equivalent binary quadratic forms have the same discriminants. Show that the converse is not true.
+
+    Let $d$ be an integer. Show that there exists a binary quadratic form with discriminant $d$ if and only if $d \equiv 0$ or $1 \pmod{4}$. 
+\end{question}
+
+\begin{question}{16}
+    Let $f$ be a binary quadratic form. When is $f$ positive definite/negative definite/indefinite?
+
+    Let $f(x,y) = ax^2 + bxy +cy^2$, $d = \disc(f)$. Show that if $d < 0$ and $a > 0$, then $f$ is positive definite; if $d < 0$ and $a < 0$, then $f$ is negative definite; if $d > 0$, then $f$ is indefinite. Requiring that $d \not = 0$, show that the converses of the above statements are all true. Show that if $f$ is positive definite, then $a>0$ and $c>0$.
+    
+    Show that if $d = 0$, then $f(x,y) = l(mx+ny)^2$ for some integers $l,m,n$.
+\end{question}
+
+\begin{question}{17}
+    When is positive definite binary quadratic form $(a,b,c)$ reduced?
+
+    Compute the unimodular substitutions $T^\pm$ and $S$ given by matrices $\begin{pmatrix}
+        1 & \pm 1 \\ 0 & 1
+    \end{pmatrix}$ and    $\begin{pmatrix}
+        0 & -1 \\ 1 & 0
+    \end{pmatrix}$ respectively. Hence, show that any positive definite binary quadratic form is equivalent to a reduced form.
+\end{question}
+
+\begin{question}{18}
+	Let $f = (a,b,c)$ be a reduced positive definite BQF. Let $d = \disc(f)$. Show that $|b| \leq a \leq \sqrt{|d|/3}$ and $b \equiv_2 d$. 
+	
+	Show that every positive definite BQF of discriminant $-4$ is equivalent to $(1,0,1)$.
+	
+	Show that every prime congruent to $1$ modulo $4$ is a sum of two squares.
+\end{question}
+
+
+\begin{question}{19}
+	When does a BQF properly represent an integer $n$? Show that if $f$ and $g$ are equivalent BQF, then $f$ and $g$ properly represent the same set of integers.
+	
+	Show that the least integers properly represented by a reduced positive definite BQF $(a,b,c)$ are $a,c,a-|b|+c$ in this order.
+	
+	Show that every positive definite BQF has a unique reduced form.
+\end{question}
+
+\begin{question}{20}
+	What is the class number $h(d)$ for integer $d \equiv 0$ or $1$ modulo $4$? Show that $h(-24) = 2$.
+\end{question}
+
+\begin{question}{20.5}
+	Let $a$ be an integer. Show that if $a \equiv 1 \pmod{8}$, then $a$ is a square modulo $2^k$ for all $k \in \N$.
+	
+	Suppose $a$ is a QR modulo $p$ for $p>2$ prime, show that $a$ is square modulo $p^k$ for all $k\in \N$.
+\end{question}
+
+\begin{question}{21}
+	Let $n \in \N$. Show that BQF $f$ properly represents $n$ if and only if $f$ is equivalent to $(n,b,c)$ for some $b,c$. Show that $n$ is properly represented by some BQF of discriminant $d$ if and only if $d$ is a QR modulo $4n$.
+	
+	Let $f = (1,1,2)$. Show that $f$ is the only reduced positive definite BQF of discriminant $-7$. Show that $f$ represents a prime $p$ if and only if $p \equiv 0,1,2,7$ modulo $7$. 
+	Show that $f$ properly represents natural number $n$ if and only if the prime decomposition of $n$ is $n = 7^{\alpha_7} \prod_{p \cong 1,2,4 \pmod{7}} p^{\alpha_p}$.
+	Deduce that $f$ represents natural number $n$ if and only if primes $p \cong 3,5,6 \pmod{7}$ divide $n$ to an even power.
+\end{question}
+\end{document}

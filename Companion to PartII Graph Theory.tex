@@ -1,0 +1,221 @@
+%input preamble
+\input{/Users/zhouzhichen/Documents/TeX/Preamble.tex}
+
+\begin{document}
+\title{Companion to Part II Graph Theory}
+\author{zzc}
+\maketitle
+
+\lhead{Companion to Part II Graph Theory}
+\rhead{\today}
+
+\begin{abstract}
+    The material is based on Cambridge Part II lectures on graph theory given by Imre Leader. Here is a \href{https://tartarus.org/gareth/maths/notes/ii/Graph_Theory.pdf}{link} to the notes taken by Gareth Taylor. 
+\end{abstract}
+
+\tableofcontents
+
+
+\section{Introduction}
+\begin{question}{1.1}
+	What is a graph $G = (V,E)$? What is the order of $G$? What is the size of $G$? What is a path $P_n$ of length $n$? What is a cycle $C_n$ of length $n$? What is an isomorphism between graphs?
+	
+	What is a subgraph of $G$? Is vertex $x$ in the neighborhood of $x$? What is a degree sequence of $G$? When is $G$ $k$-regular?
+	
+	What is an $xy$-path in $G$? How does that relate to path graph $P_n$? What is a walk? Show that $G$ has an $xy$-walk if and only if $G$ has an $xy$-path.
+	
+	When is $G$ connected? What are components of $G$?
+\end{question}
+
+\begin{question}{1.2}
+	What is an acyclic graph? What is a tree? What is a leaf? 
+	
+	Let $G$ be a connected graph. Show that $G$ is minimal connected if and only if $G$ is acyclic.
+	
+	Let $G$ be an acyclic graph. Show that $G$ is maximal acyclic if and only if $G$ is connected.
+	
+	Deduce that $G$ is a tree if and only if $G$ is minimal connected if and only if $G$ is maximal acyclic.
+\end{question}
+
+\begin{question}{1.3}
+	Show that any tree has a leaf. Let $T$ be a tree of $n$ vertices, show that $e(T) = n-1$. 
+	
+	What is a forest? Show that $G$ is a forest if and only if every component of $G$ is a tree.
+	
+	What is a bridge? What is a cutvertex? Show that if $G$ has a bridge then $G$ has a cutvertex but the converse is not true.
+\end{question}
+	
+\begin{question}{1.4}
+	Let $G$ be a connected graph, fix $x_0 \in G$. For $x \in G\backslash \{x_0\}$, let $P_x = x x' \dots x_0$ be a shortest path from $x$ to $x_0$.  Show that $d_G(x,x_0) > d_G(x',x_0)$. Deduce that $P_x - x$ is a shortest path from $x'$ to $x_0$, then deduce that $d_G(x,x_0) = d_G(x',x_0) + 1$. Hence, show that $Q_x = xx'x''\dots x_0$ is a path.
+	
+	Let $T = (V(G), \{xx'\}_{x \in G\backslash \{x_0\}})$, note that $Q_x$ is a path in $T$, show that $|Q_x| = d_G(x,x_0)$. Deduce that $T$ is a tree.
+\end{question}
+
+\begin{question}{1.5}
+	Let $G$ be a graph. Show that $G$ has an odd cycle if and only if $G$ has an odd circuit. Show that $G$ is bipartite if and only if $G$ contains no odd cycle.
+\end{question}
+
+\begin{question}{1.6}
+	Show that every tree is planar with one face. State and prove the Euler's formula.
+	
+	Let $n$ be the number of vertices of connected plane graph $G$ and $m \geq 3$ be the number of edges of $G$. Show that $m \leq 3n - 6$. Construct an instance of $G$ such that the equality holds. Deduce that $K_5$ is non-planar.
+	
+	Show that $K_{3,3}$ is non-planar.
+\end{question}
+
+\begin{question}{1.7}
+	Show that every graph of average degree $d$ contains a subgraph of minimum degree $\geq d/2$.
+\end{question}
+
+\begin{question}{8}
+	Let $G$ be a regular graph with order $n$, show that the possible clique number of $G$ are $1, \dots, \lfloor \frac{n}{2}\rfloor$ or $n$. 
+\end{question}
+
+\begin{question}{1.9}
+	Let $G$ be a graph with vertex set $V$. Show that there exists a partition $X\cup Y = V$ such that $G[X]$ and $G[Y]$ have all vertices of even degree.
+\end{question}
+
+\section{Connectivity and Matchings}
+\begin{question}{2.1(Hall's Marriage Theorem)}
+	(i) Let $G$ be a bipartite graph with vertex classes $X$ and $Y$. What is a matching from $X$ to $Y$?	Show that there exists a matching $X\rightarrow Y$ if and only if $|\Gamma(A)| \geq |A|$ for all $A \subset X$.
+	
+	(ii) What is a matching of deficiency $d$? Show that there exists a matching $X\rightarrow Y$ of deficiency $d$ if and only if $|\Gamma(A)| \geq |A| - d$ for all $A \subset X$.
+	
+	(iii) What is a transversal of finite sets $S_1,\dots,S_n$? Show that $S_1,\dots,S_n$ have a transversal if and only if \[\bigg|\bigcup_{i\in A}S_i \bigg| \geq |A|\] for all $A \subset [n]$.
+	
+	(iv) Let $G$ be a finite group with subset $H$ and $[G:H] = n$. Show that there exists $g_1,\dots,g_n$ such that $g_1H,\dots,g_n H$ are all the left cosets of $G$ and $Hg_1,\dots, Hg_n$ are all the right cosets of $G$.
+\end{question}
+
+\begin{question}{2.2(Connectivity)}
+	(i) What is a separator of graph $G$? What is the connectivity $\kappa(G)$ of a graph $G$? Let $a \not = b \in G$. When is $S \subset G$ an $ab$-separator? Show that $S$ is an $ab$-separator if and only if $S$ meets every $ab$-path.
+	
+	State and prove Menger's theorem. Deduce Hall's marriage theorem from Menger's theorem.
+	
+	Deduce that $G$ is $k$-connected if and only if for all $a,b \in G$, there are $k$ independent $ab$-paths.
+\end{question}
+
+\begin{question}{2.4}
+	What is the edge connectivity $\lambda(G)$ of graph $G$? What is the line graph $L(G)$ of $G$?
+	
+	State and prove the edge version of Menger's theorem.
+	
+	Deduce that $G$ is $k$-edge connected if and only if for all $a,b \in G$, there are $k$-edge-independent $ab$-paths.
+\end{question}
+
+\section{Extremal Problems}
+\begin{question}{3.1}
+	What is a Euler circuit? Show that any graph with a bridge is not Eulerian.
+	
+	Let $G$ be a connected graph,  show that $G$ is Eulerian if and only if every vertex of $G$ has an even degree.
+\end{question}
+	
+\begin{question}{3.2}
+	What is a Hamiltonian cycle? Show that any graph with a cutvertex is not Hamiltonian.
+	
+	Let $G$ be a graph of order $n$, where $n \geq 3$. Show that $\delta(G) \geq n/2$ implies that $G$ is Hamiltonian. Illustrate that the condition is strict.
+	
+\end{question}
+
+\begin{question}{3.3}
+	Let $G$ be a connected graph of order $n$. For $k < n$, show that if $\delta(G) \geq k/2$, then $G$ contains a path of length $k$.
+	
+	Let $G$ be a graph of order $n$. Show that $e(G) > \frac{n(k-1)}{2}$ implies that $G$ has a path of length $k$.
+\end{question}
+
+\begin{question}{3.4}
+	What is a Turan graph $T_k(n)$? Show that $T_{r-1}(n)$ is maximal $K_r$-free.
+	
+	How do you obtain $T_k(n-1)$ from $T_k(n)$? How do you obtain $T_k(n)$ from $T_k(n-1)$?
+	
+	Let $G$ be a graph of $n$ vertices. Show that if $G$ is $k$-partite, then $e(G) \geq e(T_k(G))$.
+	
+	State and prove Turan's theorem.
+\end{question}
+
+\begin{question}{3.5}
+	What is Zarankiewicz's number $Z(n,t)$? Show that for $t \geq 2$, $Z(n,t) \leq t^{1/t} \cdot n^{2- 1/t} + nt$. Deduce that for $n$ large, $Z(n,t) \leq 2n^{2-1/t}$.
+\end{question}
+
+\section{Colourings}
+\begin{question}{4.1}
+	What is an $r$-colouring of a graph $G$? What is the chromatic number $\chi(G)$ of $G$?
+	
+	(i) Let $T$ be a tree with $|T| \geq 2$. Show that $\chi(T) = 2$.
+	
+	(ii) Show that $\chi(G) \leq \Delta + 1$. 
+\end{question}
+
+\begin{question}{4.2(Planar Graphs)}
+	(i)Let $G$ be a planar graph. Show that $\delta(G) \leq 5$. Deduce that $G$ is $6$-colourable.
+	
+	(ii) Equip $G$ with $r$-colouring $c$. What is an $ij$-Kempe chain in $G$? What is an $ij$-component of $G$? Show that by swapping colours $i$ and $j$ in an $ij$-component of $G$, we obtain an $r$-colouring $c'$ of $G$.
+	
+	(iii)  Show that any planar graph $G$ is $5$-colourable.
+	
+	(iv) Let $G$ be a planar graph with a drawing. What is the dual graph $G'$ of $G$? Show that every planar map is $5$-colourable.
+\end{question}
+
+\begin{question}{4.3(Brooks' Theorem)}
+	(i) $G$ be a graph with $V = \{x_1,\dots,x_n\}$ ordered. What is a forward edge from $x_i$? Show that a connected non-regular graph is $\Delta$-colourable.
+	
+	\bigskip
+	
+	Let $G$ be a connected graph that is not complete nor an odd cycle. We want to show that $G$ is $\Delta$-colourable.
+	
+	(ii) Show that the problem can be reduced to the case where $G$ is regular, $\Delta \geq 3$, and $G$ is $2$-connected.
+	
+	(iii) Finish the proof by considering whether $G$ is $3$-connected.
+\end{question}
+
+\begin{question}{4.4(Chromatic Polynomials)}
+	(i) What is the chromatic polynomial $P_G$ for a graph $G$? Show that $\chi(G)$ is the smallest positive integer such that $P_G(\chi_G) > 0$. Show that $P_T(t) = t(t-1)^{n-1}$ for $T$ tree with $n$ vertices, $n \geq 1$.
+	
+	(ii) Let $e$ be an edge of $G$, what is the contraction $G/e$? Show that $P_G = P_{G-e} - P_{G/e}$. Deduce that $P_G$ is a polynomial.
+	
+	(iii) Let $G$ be a graph with $n$ vertices and $m$ edges, show that $P_G(t) = t^n - mt^{n-1}+\dots$.
+\end{question}
+
+\begin{question}{4.5(Edge Colourings)}
+	(i) What is a $k$-edge-colouring of $G$? What is $\chi'(G)$? Show that $\chi'(G) \geq \Delta(G)$.
+	
+	(ii) Show that $\chi'(G)\leq \Delta(G) + 1$.
+\end{question}
+
+\begin{question}{4.6(Graphs on Surfaces)}
+	(i) What is the Euler characteristic for surfaces of genus $g$? State the Euler's formula for graphs on surfaces of genus $g$. Show that $m \leq 3(n - E)$ for $m \geq 3$.
+	
+	(ii) Let $G$ be a graph drawn on surface with Euler characteristic $E$. Show that \[\chi(G) \leq H(E):= \frac{7 + \sqrt{49-24E}}{2} \]. (Hint: show that the minimal graph $G$ with $\chi(G) = k$ satisfies $\delta(G) \geq k-1$.)
+\end{question}
+
+\section{Ramsey Theory}
+\begin{question}{5.1(Ramsey's Theorem)}
+	(i) Show that there exists a monochromatic $K_3$ in a $2$-edge-coloured $K_5$.
+	
+	(ii) What is $R(s)$ for $s \geq 2$? Find $R(3)$.
+	
+	(iii) What is $R(s,t)$ for $s,t \geq 2$? Show that $R(s,2) = s$.
+	
+	(iv) Show that $R(s,t) \leq R(s-1,t) + R(s,t-1)$ for $s,t \geq 3$. Deduce that $R(s,t)$ exists for all $s,t \geq 2$.
+	
+	(v) Show that $R(s,t) \leq {s+t-2 \choose s-1}$ for all $s,t \geq 2$.
+	
+	(vi) What is $R_k(s_1,\dots,s_k)$? Show that $R_k(s_1,\dots,s_k)$ exists for all $s_1,\dots,s_k \geq 2$.
+	
+\end{question}
+
+\begin{question} {5.2($r$-sets)}
+	(i) What is $X^{(r)}$ for set $X$? What is $R^{(r)}(s,t)$ for $s,t \geq r$? Show that $R^{(r)}(s,r) = s$. 
+	
+	(ii) Show that $R^{(r)}(s,t)$ exists for all $r \geq 1$, $s,t \geq r$.
+\end{question}
+
+\begin{question}{5.3(Infinite Ramsey)}
+	(i) Show that for any $2$-edge-colouring of $\N$, there exists an infinite monochromatic subset of $\N$.
+	
+	(ii) Show that for any sequence $(x_n)$ in $\R$, $x_n$ has an increasing subsequence or a strictly decreasing subsequence.
+	
+	(iii) Show that for any $2$-colouring of $\N^{(r)}$, there exists an infinite monochromatic subset of $\N$.
+	
+	(iv) Show that for any sequence $(x_n)$ in $\R$, $x_n$ has a convex subsequence or a strictly concave subsequence.
+\end{question}
+\end{document}

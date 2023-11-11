@@ -1,0 +1,333 @@
+%input preamble
+\input{/Users/zhouzhichen/Documents/TeX/Preamble.tex}
+
+
+\begin{document}
+\title{Companion to Part II Representation Theory}
+\author{zzc}
+\maketitle
+
+
+\lhead{Companion to Part II Representation Theory}
+\rhead{\today}
+
+\begin{abstract}
+    Here are some bookwork questions based on the lecture notes by Prof. Simon Wadsley in Michaelmas 2022.
+\end{abstract}
+\tableofcontents
+
+
+\section{Introduction}
+\begin{question}{1}
+   What is a representation of group $G$? What is the degree of representation $\rho$? When is representation $\rho$ faithful?
+
+   What is the trivial representation of $G$ with degree $1$? Show that this is indeed a representation.
+
+   Show that there exists a 1-1 correspondence between representations of $\Z$ on $V$ and invertible linear maps on $V$.
+
+    Show that there exists a 1-1 correspondence between representations of $\Z/n\Z$ on $V$ and linear maps $\alpha$ on $V$ such that $\alpha^n = \id$.
+\end{question}
+
+\begin{question}{2}
+    Given a finite set $X$ and field $k$, what is the vector space $kX$? What is the permutation representation of $G$ on $X$ induced by an action of $G$ on $X$? Show that this is indeed a representation. 
+    
+    What is the regular representation of $G$? Show that the regular representation is faithful.
+
+    Suppose $\rho$ is a representation of $G$ on $V$, define a natural representation of $G$ on $V'$ induced by $\rho$.
+
+    Let $(\rho,V)$ and $(\rho',W)$ be representations of $G$, show that $(\sigma, \hom_k(V,W))$ given by $\sigma(g)\alpha = \rho'(g) \circ \alpha \circ \rho(g)^{-1}$ is a representation.
+    
+    Let $\theta : H \rightarrow G$ be a homomorphism and $(\rho,V)$ be a representation of $G$, show that $(\rho \circ \theta, V)$ is a representation of $H$. What is a restriction of $\rho$ to $H$?
+    
+\end{question}
+
+\begin{question}{3}
+    When are two representations $(\rho,V)$ and $(\rho',W)$ isomorphic? Show that isomorphism of representations is an equivalence relation. Show that every representation is isomorphic to a matrix representation.
+
+    Show that there is a 1-1 correspondence between $\Z$-representations on $V$ of dimension $d$ and conjugacy classes of matrices in $\GL_d(k)$.
+
+    Suppose $G = C_2 = \{\pm 1\}$, show that isomorphism classes of representations of $G$ corresponds to matrices that square to the identity. Show that if $k$ does not have characteristic $2$, then there exist exactly $n+1$ representation classes of $C_2$ of dimension $n$.
+\end{question}
+
+\begin{question}{4}
+    Let $\rho$ be a representation of $G$ on $V$. Let $W$ be a subspace of $V$, when is $W$ $G$-invariant? What is a subrepresentation of $\rho$? When is a subrepresentation $W$ of $V$ proper? When is a representation irreducible?
+
+    Show that any one-dimensional representation of a group is irreducible.
+
+    Let representation $\rho : C_2 \rightarrow \GL(k^2)$ given by $-1 \mapsto \begin{pmatrix}
+        -1 & 0\\0 & 1
+    \end{pmatrix}$. Show that there are two proper subrepresentations of $\rho$ spanned by standard basis vectors $e_1$ and $e_2$ of $k^2$ respectively.
+
+    Show that any irreducible representation of $C_2$ is one-dimensional, over a field of characteristic not two.
+
+    Show that any irreducible complex  representation of $D_6$ has dimension at most $2$. Find all irreducible complex representations of $D_6$ up to isomorphism.
+\end{question}
+
+\begin{question}{5}
+	Let $A$ be a Jordan block of dimension $n$. Show that $W$ is an invariant subspace of $A$ if and only if $W = \span\{e_1,\dots,e_k\}$, where $k \leq n$. Deduce that every irreducible complex representation of $\Z$ has dimension one.
+\end{question}
+
+\begin{question}{6}
+	Let $(\rho,V)$ be a representation of $G$, let $W$ be a subrepresentation. What is the quotient representation $(\rho_{V/W}, V/W)$? Verify that this is indeed a representation.
+	
+	Let $(\rho,V)$ and $(\rho', W)$ be representations of $G$.  When is $\phi \in \hom_k(V,W)$ $G$-linear? What is $\hom_G(V,W)$?
+	
+	Show that $\phi \in \hom_k(V,W)$ is an intertwining map if and only if $\phi$ is bijective and $G$-linear.
+	
+	Let $W$ be a subrepresentation of $V$. Show that the inclusion map $i : W \rightarrow V$ and the quotient map $\pi : V \rightarrow V/W$ are $G$-linear.
+	
+	Let representations $V$ and $W$ induce a representation of $G$ on $\hom_k(V,W)$. Show that $\phi \in \hom_k(V,W)$ is $G$-linear if and only if $g \cdot \phi = \phi$.
+\end{question}
+
+\begin{question}{7}
+	Let $U$, $V$, and $W$ be representations of $G$, let $\phi \in \hom(V,W)$ and $\psi \in \hom(U,V)$. Show that $g \cdot (\phi \circ \psi) = (g \cdot \phi) \circ (g \cdot \psi)$. Deduce that if both $\phi$ and $\psi$ are $G$-linear, then $\phi \circ \psi$ are $G$-linear.
+\end{question}
+
+\begin{question}{8}
+	Let $V$ and $W$ be representations of $G$. Let $\phi \in \hom_G(V,W)$. Show that $\ker \phi$ and $\text{im} \phi$ are $G$-invariant. Show that $V/\ker \phi \cong \text{im}\phi$ as representations.
+\end{question}
+
+\section{Complete Reducibility}
+\begin{question}{9}
+	Let $G$ act on finite set $X$, where $X$ is the disjoint union of $X_1$ and $X_2$. Suppose $X_1$ and $X_2$ are $G$-invariant, show that $kX = kX_1 \oplus kX_2$.
+	
+	Let $G$ act on finite set $X$. Let $U = \{f\in kX: \sum_{x\in X} f(x) = 0\}$ and $W=\{f\in kX: f \text{ is a constant}\}$. Show that $U$ and $W$ are subrepresentations of $f$ and if $\cha k = 0$ then $kX = U \oplus W$.
+\end{question}
+
+\begin{question}{10}
+	Let $G$ be a finite abelian group. Show that any irreducible complex representation is one-dimensional.
+\end{question}
+
+\begin{question}{11}
+	Let $G$ act on a finite set $X$. What is the standard inner product $(-,-)$ on $\R X$? Show that $(f_1,f_2) = (gf_1,gf_2)$. Deduce that if $W \subset \R X$ is a subrepresentation, then $W^\bot$ is $G$-invariant. 
+	
+	Let $(\rho,V)$ be a complex representation of $G$ into an inner product space. When is the representation unitary? Show that if $\rho$ is unitary and $W \subset V$ is a $G$-invariant subrepresentation, then $W^\bot$ is $G$-invariant.  Show that if $W$ is finite-dimensional, then $W^\bot$ is a $G$-invariant complement to $W$.
+\end{question}
+
+\begin{question}{12}
+	Show that finite representation $(\rho,V)$ is unitary if and only if $V$ has a $G$-invariant inner product.
+	
+	State and prove the Weyl's unitary trick.
+\end{question}
+
+\begin{question}{13}
+	State and prove Maschke's theorem. 
+	
+	Let $V$ be a $G$-representation over $k$ with $\cha k$ not dividing $|G|$. Show that $\phi \mapsto \frac{1}{|G|}\sum_{g\in G} g \cdot \phi$ is a projection in $\hom_k(V,V)$. Find the image $V^G$ and show that $\dim V^G = \frac{1}{|G|}\sum_{g\in G} \text{tr}(g)$.
+\end{question}
+
+\section{Schur's Lemma}
+\begin{question}{14}
+	State and prove Schur's lemma.
+	
+	Let $V$, $W$ be representations of $G$. Show that the fixed points $V^G$ and $W^G$ are subspaces. Let $\phi : V \rightarrow W$ be an isomorphism of representations, show that $\phi$ induces an isomorphism of subrepresentations $V^G \rightarrow W^G$.
+	
+	Let $V,V_1,V_2$ be representations of $G$.
+	Show that $V_1^G \oplus V_2^G = (V_1\oplus V_2)^G$. Show that $\hom_G(V,V_1 \oplus V_2) \cong \hom_G(V,V_1) \oplus \hom_G(V,V_2)$ and that $\hom_G(V_1 \oplus V_2,V) \cong \hom_G(V_1,V) \oplus \hom_G(V_2,V)$.
+	
+	Let k be algebraically closed and $V \cong \oplus V_i$ be a representation of $G$ decomposed into irreducible components. Let $W$ be an irreducible representation of $V$, show that $|\{i: V_i \cong W\}| = \dim \hom_G(W,V) = \dim \hom_G(V,W)$.
+	
+	Show that $\dim \hom_G(k,V) = \frac{1}{|G|}\sum_{g\in G} \text{tr}(g)$.
+\end{question}
+
+\begin{question}{15}
+	Let $G$ be a finite group and $V$ be a faithful irreducible representation of $G$ over an algebraically closed field $k$. Show that $Z(G)$ is cyclic.
+	
+	Show that every complex irreducible representation of a finite abelian group $G$ is one-dimensional. List all irreducible complex representations of $C_4$ and $C_2 \times C_2$. Which of them are isomorphic?
+\end{question}
+
+\begin{question}{16}
+	Let $G$ be an abelian group and $H$, $K$ be groups. Show that there exists a 1-1 correspondence between $\hom(H\times K, G)$ and $\hom(H,G)\times \hom(K,G)$. 
+	
+	Show that there is a 1-1 correspondence between irreducible complex representations of $C_n$ and the $n^\text{th}$ complex roots of unity.
+	
+	Deduce that every finite abelian group $G$ has exact $|G|$ irreducible complex representations.
+\end{question}
+
+\begin{question}{17}
+	Let $(\rho_1,V_1)$ and $(\rho_2,V_2)$ be non-isomorphic one-dimensional complex representations of finite group $G$. Show that $\sum_{g\in G} \overline{\rho_1(g)} \rho_2(g) = 0$.
+\end{question}
+
+\begin{question}{18}
+	Let $\mu = e^{i\theta}$. Write down a basis under which the linear map represented by $ \begin{pmatrix}
+	\mu & 0 \\ 0 & \bar{\mu}
+\end{pmatrix}	$ is real.
+	
+	Find all complex irreducible representations of $C_n$. Find all real irreducible representations of $C_n$. Decompose the complex regular representation $\C C_n$ into irreducible subrepresentations. Decompose the real regular subrepresentation $\R C_n$ into irreducible subrepresentations.
+\end{question}
+
+\begin{question}{19}
+	Let $V$ be a completely reducible representation of a group $G$, let $W$ be an irreducible subrepresentation of $V$, what is a $W$-isotypic component of $V$? When does $V$ have a unique isotypical decomposition?
+	
+	Let $G$ be a finite abelian group. Show that any complex representation $V$ of $G$ has an isotypic decomposition.
+\end{question}
+
+\section{Characters}
+\begin{question}{20}
+	Let $\rho$ be a representation of $G$, what is the character of $\rho$? Show that equivalent representations have the same character.
+	
+	Let $(\rho,V)$ be a representation of $G$ with character $\chi$. Show the followings:
+	
+	(i) $\chi(e) = \dim V$.
+	
+	(ii) $\chi(g) = \chi(h g h^{-1})$.
+	
+	(iii) if $\chi'$ is the character of $(\rho',V')$, then $\chi + \chi'$ is the character of $V \oplus V'$.
+	
+	(iv) if $k = \C$ and $\rho$ is unitary, then $\chi(g^{-1}) = \overline{\chi(g)}$.
+\end{question}
+
+\begin{question}{21}
+	What is a class function? Show that $\curC_G$ is a $k$-vector space.
+	
+	Let $\{\curO_i\}$ be the conjugacy classes of $G$. Show that the indicator functions $1_{\curO_i}$ form a basis of $\curC_G$. Deduce that $\dim \curC_G$ is the number of conjugacy classes of $G$.
+	
+	Define a Hermitian inner product on $\curC_G$ and show that this is indeed an inner product.
+	
+	Let $f,f_1,f_2 \in \curC_G$, let $\{x_i\}$ be representatives of conjugacy classes in $G$, derive an expression for $f$ in terms of basis $\{1_{\curO_i}\}$, hence derive an expression for $\langle f_1,f_2 \rangle_G$.
+	
+	By considering $D_6$, find an example of the above expression. 
+\end{question}
+
+\textbf{From now on, all representations are assumed to be complex unless otherwise stated.}
+
+\begin{question}{22}
+	Let $V$ and $W$ be  representations of finite group $G$, show that $\chi_{\hom_k(V,W)}(g) = \overline{\chi_V(g)} \chi_W(g)$ for all $g \in G$.
+\end{question}
+
+\begin{question}{23}
+	Let $G$ be a finite group.
+	
+	Let $U$ be a representation of $G$. Show that $\dim U^G = \langle 1, \chi_U \rangle$.
+	
+	Let $V$, $W$ be representations of $G$, show that $\dim \hom_G(V,W) = \langle \chi_V,\chi_W \rangle$.
+	
+	Deduce that if $V$ and $W$ are irreducible representations of $G$, then $\langle \chi_V, \chi_W \rangle = 1$ if $V$ and $W$ are isomorphic representations, and $\langle \chi_V, \chi_W \rangle = 0$ otherwise.
+\end{question}
+
+\begin{question}{24}
+	Let $V$ be a representation of a finite group $G$. Show that $V$ is irreducible if and only if $\langle \chi, \chi \rangle = 1$. Deduce that the representation of $D_6$ extending symmetries of a triangle is irreducible.
+\end{question}
+
+\begin{question}{25}
+	Show that irreducible characters of a finite group $G$ form an orthonormal basis of $\curC_G$. 
+	Deduce that the number of irreducible characters of $G$ equal to the number of conjugacy classes of $G$.
+	
+	Show that $\chi(g)$ is real for every irreducible character $\chi$ if and only if $g^{-1}$ is conjugate to $g$.
+\end{question}
+
+\begin{question}{26}
+	Let $G$ be a finite group and $\chi_1,\dots,\chi_r$ be a complete list of irreducible characters of $G$. Show that for $g,h\in G$, $\sum_i \overline{\chi_i(h)} \chi_i(g) = |\curC_G(g)|$ if $g$, $h$ are conjugate and the sum is zero otherwise.
+	Deduce that $|G| = (\dim V_i)^2$, where $V_i$ is the corresponding list of irreducible representations.
+\end{question}
+
+\begin{question}{27}
+	Let finite group $G$ act on finite set $X$.  Let $\chi$ be the character of $\C X$. Show that $\chi(g) = \{x\in X : gx = x\}$.
+	
+	Let $V_1,\dots,V_r$ be a complete list of irreducible representations of $G$, show that the regular representation decomposes as $\C G \cong \bigoplus_i (\dim V_i)V_i$. Deduce that $|G| = (\dim V_i)^2$.
+\end{question}
+
+\begin{question}{28}
+	State and prove Burnside's lemma. Let finite group $G$ act on finite set $X$.  Show that, for each orbit $\curO_i$ of $X$, $\C \curO_i$ contains exactly one copy of the trivial representation.
+	
+	Let $Y$ be another finite set acted on by $G$. Show that $\chi_{\C X\times Y} = \chi_{\C X}\cdot \chi_{\C Y}$. Show that $\langle \chi_{\C X}, \chi_{\C X} \rangle$ is the number of orbits in $X \times X$.
+	
+	Let $\Delta_X = \{(x,x)\in X\times X: x\in X\}$. Show that $\Delta_X$ and $(X\times X) \backslash \Delta_X$ are $G$-stable.
+	
+	When does $G$ act $2$-transitively on $X$? Show that $G$ acts $2$-transitively on $X$ if and only if $X\times X$ has exactly two orbits. 
+	Deduce that if $G$ acts $2$-transitively on $X$, then $\langle \chi_{\C X},\chi_{\C X} \rangle = 2$.
+	
+	Deduce that $\C X$ has exactly two non-isomorphic irreducible summands. Deduce that $V = \{f\in \C X : \sum_{x\in X} f(x) = 0\}$ is an irreducible subrepresentation of $\C X$ with character $\chi_V(g) = (\text{number of fixed points of }g) -1$.
+\end{question}
+
+\begin{question}{29}
+	Work out the character table of $S_4$ and $A_4$.
+\end{question}
+
+\begin{question}{30}
+	Formulate and prove the fact that size-degree-weighted characters are algebraic integers. (not able to understand the proof yet)
+\end{question}
+
+\section{The Character Ring}
+\begin{question}{31}
+	Let $V$ and $W$ be $k$-vector spaces. What is $V \otimes W$? Show that $kX \otimes kY \cong k(X \otimes Y)$.
+	
+	Show that the canonical map $V \times W \rightarrow V \otimes W$ is bilinear. Show that there is a 1-1 correspondence between linear maps $V \otimes W \rightarrow U$ and bilinear maps $V \times W \rightarrow U$.
+	
+	Show that the definition of tensor product does not depend on the choice of basis, i.e. let $\{x_i\}$ be a basis of $V$ and $\{y_j\}$ be a basis of $W$, then $\{x_i \otimes y_j\}$ is a basis of $V \otimes W$.
+	
+	Using the basis independent definition of tensor product, show that for vector spaces $U, V, W$, there is a natural isomorphism $(U \oplus V) \otimes W \rightarrow (U \otimes W) \oplus (V \otimes W)$.(hard) 
+\end{question}
+
+\begin{question}{32}
+	Let $V$ and $W$ be vector spaces and $\phi \in \edo (V)$ and $\psi \in \edo (W)$, define $\phi \otimes \psi$. Find the matrix of $\phi \otimes \psi$ under the standard basis with lexographic order.
+	
+	Show that $\phi \times \psi$ does not depend on the choice of basis.
+	
+	\bigskip
+	
+	Let $\phi, \phi_1, \phi_2 \in \hom_k(V,V)$ and $\psi, \psi_1, \psi_2 \in \hom_k(W,W)$, show the followings:
+	
+	(i) $(\phi_1 \circ \phi_2) \otimes (\psi_1 \circ \psi_2) = (\phi_1 \otimes \psi_1) \circ (\phi_2 \otimes \psi_2)$.
+	
+	(ii) $\id_V \otimes \id_W = \id_{V\otimes W}$.
+	
+	(iii) $\tr (\phi \otimes \psi) = \tr(\phi) \cdot \tr (\psi)$.
+	
+	\bigskip
+	
+	Let $(\rho,V)$ and $(\rho',V')$ be representations of $G$. Show that $\rho \otimes \rho'$ given by $g \mapsto \rho(g) \otimes \rho(g)'$ is a representation of $G$ into $V \otimes V'$. Show that $\chi_{\rho\otimes \rho'} = \chi_\rho \otimes \chi_{\rho'}$.
+\end{question}
+
+\begin{question}{33}
+	Let $G$ be a group, what is the character ring $R(G)$ of $G$? Show that $R(G)$ is a commutative subring of $\curC_k$ containing all characters of $G$.
+	
+	Show that $k \otimes V \cong V$ by $(a,v) \mapsto av$ is an linear isomorphism.
+	
+	Let $(\rho,V)$ be representation of $G$ and $(\rho',W)$ be representation of $H$. Define a representation $(\rho \otimes \rho',V \otimes W)$ of $G \times H$ and check that this is a representation. (This induces a homomorphism of character rings $R(G) \times R(H) \rightarrow R(G \times H)$?)
+	
+	Let $G$ act on finite sets $X$ and $Y$, show that the canonical isomorphism between $k(X \times Y)$ and $kX \otimes kY$ is an isomorphism of representations on $G \times G$.
+\end{question}
+
+\begin{question}{34}
+	Let $G$ and $H$ be finite subgroups. Let $\{(\rho_i,V_i)\}_i$ be a complete list of irreducible complex representations of $G$ and $\{(\rho_j',W_j)\}_j$ be a complete list of irreducible complex representations of $H$. Show that $\{(\rho_i \otimes \rho_j', V_i \otimes W_j)\}$ is a complete list of irreducible complex representations of $G \times H$. 
+	
+	Deduce that $\dim \curC_G \cdot \dim  \curC_H = \dim \curC_{G \times H}$.
+\end{question}
+
+
+\begin{question}{35}
+	Let $V$ be a vector space, let $\sigma = \sigma_V : V \otimes V \rightarrow V \otimes V$ by $v \otimes w \mapsto v \otimes w$. By considering a bilinear map from $V \times V$, show that $\sigma$ defines a unique linear map.
+\end{question}
+
+\begin{theorem}{(Inner semi-direct product)}
+	Let $G$ be a group with normal subgroup $N$ and subgroup $H$, show that the followings are equivalent:
+	
+	(i) $NH = G$ and $N \cap H = 1$.
+	
+	(ii) Every element $g \in G$ can be uniquely written as $g = nh$,  where $n \in N$ and $h \in H$.
+	
+	(iii) The natural map $\psi: H \rightarrow G/N$ by $h \mapsto hN$ is an isomorphism.
+	
+	\bigskip
+	
+	We call $G$ is the semi-direct product of $N$ and $H$, denoted $G = N \rtimes H$.
+	
+	Using the second isomorphism theorem, show that when $|G| = |N| \cdot |H|$, either condition in (i) implies the other. Show that if further $|N|$ and $|H|$ are coprime, then the condition holds automatically.
+\end{theorem}
+
+\begin{theorem}{(Outer semi-direct product)}
+	Let $N$, $H$ be groups and $\phi : H \rightarrow \Aut(N)$ be a homomorphism. such that $h \mapsto \phi_h$ Define $G = N \times H$ equipped with multiplication $(n,h)(n',h') = (n\phi_h(n'),hh')$. Show that $G$ is indeed a group.
+	
+	Embed $N$ and $H$ naturally into $G$, show that $G = N \rtimes H$. We denote this case as $G = N \rtimes_\phi H$.
+\end{theorem}
+\end{document}
+
+
+
+
+
+
+
+
+

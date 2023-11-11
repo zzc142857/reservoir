@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+%Packages
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+ \usepackage{hyperref}
+ 
+ %Colours
+ \definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{midnightblue}{rgb}{0.1, 0.1, 0.44}
+\definecolor{darkred}{rgb}{0.55, 0.0, 0.0}
+
+%hyperlink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkred,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdfpagemode=FullScreen,
+    }
+ 
+%Symbols2
+\newcommand{\interior}[1]{{\kern0pt#1}^{\mathrm{o}}}
+
+%mathcal
+\newcommand{\curA}{\mathcal{A}}
+\newcommand{\curB}{\mathcal{B}}
+\newcommand{\curC}{\mathcal{C}}
+\newcommand{\curD}{\mathcal{D}}
+\newcommand{\curE}{\mathcal{E}}
+\newcommand{\curF}{\mathcal{F}}
+\newcommand{\curG}{\mathcal{G}}
+\newcommand{\curH}{\mathcal{H}}
+\newcommand{\curI}{\mathcal{I}}
+\newcommand{\curL}{\mathcal{L}}
+\newcommand{\curM}{\mathcal{M}}
+\newcommand{\curO}{\mathcal{O}}
+\newcommand{\curP}{\mathcal{P}}
+
+%mathbb
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+%text
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\cha}{\text{char}}
+\newcommand{\disc}{\text{disc}}
+\newcommand{\edo}{\text{End}}
+\newcommand{\Fr}{\text{Frob}}
+\newcommand{\id}{\text{id}}
+\newcommand{\im}{\text{im}}
+\newcommand{\hcf}{\text{hcf}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Gal}{\text{Gal}}
+\newcommand{\graph}{\text{Graph}}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\QR}{\text{QR}}
+\newcommand{\QNR}{\text{QNR}}
+\newcommand{\Root}{\text{Root}}
+\newcommand{\SL}{\text{SL}}
+\renewcommand{\span}{\text{span}}
+\newcommand{\tr}{\text{tr}}
+
+
+%Environments
+\newenvironment{onquestion}[2][On Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\renewcommand{\qed}{\hfill$\blacksquare$}
+\let\newproof\proof
+\renewenvironment{proof}{\begin{addmargin}[1em]{0em}\begin{newproof}}{\end{newproof}\end{addmargin}\qed}
+
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{remark}[2][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+

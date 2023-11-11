@@ -1,0 +1,303 @@
+\documentclass[12pt]{article}
+ 
+%Packages
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+ \usepackage{hyperref}
+ 
+ %Colours
+ \definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{midnightblue}{rgb}{0.1, 0.1, 0.44}
+\definecolor{darkred}{rgb}{0.55, 0.0, 0.0}
+
+%hyperlink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkred,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdfpagemode=FullScreen,
+    }
+ 
+%Symbols
+\newcommand{\interior}[1]{{\kern0pt#1}^{\mathrm{o}}}
+
+%mathcal
+\newcommand{\curA}{\mathcal{A}}
+\newcommand{\curB}{\mathcal{B}}
+\newcommand{\curE}{\mathcal{E}}
+\newcommand{\curF}{\mathcal{F}}
+\newcommand{\curG}{\mathcal{G}}
+\newcommand{\curM}{\mathcal{M}}
+
+%mathbb
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\PP}{\mathbb{P}}
+
+%text
+\newcommand{\id}{\text{id}}
+\newcommand{\graph}{\text{Graph}}
+\newcommand{\disc}{\text{disc}}
+\newcommand{\im}{\text{im}}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\hcf}{\text{hcf}}
+\newcommand{\QR}{\text{QR}}
+\newcommand{\QNR}{\text{QNR}}
+
+%Environments
+\renewcommand{\qed}{\hfill$\blacksquare$}
+\let\newproof\proof
+\renewenvironment{proof}{\begin{addmargin}[1em]{0em}\begin{newproof}}{\end{newproof}\end{addmargin}\qed}
+
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{onquestion}[2][On Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+
+
+
+ % --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\begin{document}
+\title{Companion to Part II Linear Analysis}
+\author{zzc}
+\maketitle
+
+
+\lhead{Companion to Part II Linear Analysis}
+\rhead{\today}
+
+\begin{abstract}
+    The material is based on Cambridge Part II lectures on linear analysis given by Imre Leader. Here is a link to the notes taken by Mia Lam.
+\end{abstract}
+
+\tableofcontents
+
+
+\section{Normed vector spaces}
+\begin{question}{1.1(Riesz's Lemma)}
+	(i) What is the distance between a point and a closed subset in a metric space? Show that $d(x,Y) = 0$ implies that $x \in Y$.  Show that $x \mapsto d(x,Y)$ is continuous.
+	
+	(ii) Let $X$ be NVS, $Y$ be a proper closed subspace of $X$. Let $S = \{x\in X:\|x\| = 1\}$ be the unit sphere in $X$. Show that for all $\epsilon > 0$, there exists $x \in S$ such that $d(x,Y) \geq 1-\epsilon$. Show further that if $X$ is finite-dimensional, then there exists $x \in S$ such that $d(x,Y) = 1$.
+	
+	(iii) Show that the closed unit ball $B_X$ in infinite dimensional space $X$ is not compact.
+\end{question}
+
+
+\begin{question}{1.2(Compact Operator Definition)}
+	(i) What is a compact operator between normed spaces $X$ and $Y$? Show that any finite-rank operator is compact.
+	
+	(ii) Show that every compact operator is continuous.
+	
+	(iii) Show that if $X$ is infinite dimensional NVS, then the identity map $\id:X\rightarrow X$ is not compact.
+	
+	(iv) $T:X\rightarrow Y$ is compact if and only if every bounded sequence $(x_n)$ in $X$ has subsequence $(x_{n_k})$ such that $(Tx_{n_k})$ is convergent. Deduce that $T:X\rightarrow Y$ is compact if and only if $T(B)$ is precompact for every bounded set $B \subset X$.
+	
+	(v) Let $Y$ be Banach. Show that $T:X\rightarrow Y$ is compact if and only if $\overline{T(B_X)}$ is totally bounded if and only if $T(B_X)$ is totally bounded.
+\end{question}
+
+\begin{question}{1.3(Compact Operator Properties)}
+	(i) Let $X$ be a NVS and $Y$ be a Banach space. Show that the set of all compact operators from $X$ to $Y$ form a closed subspace of $L(X,Y)$. Deduce that any limit of finite-rank operator is compact.
+	
+	(ii) Let $S$ and $T$ be bounded operators, show that if either $S$ or $T$ is compact, then $S \circ T$ is compact.
+\end{question}
+
+\begin{question}{1.4(Open Mapping Lemma)}
+	(i) Show that $\id: (\ell_1,\|\cdot\|_1) \rightarrow (\ell_1,\|\cdot\|_2)$ does not have complete image.
+	
+	(ii) Let $X$ be a Banach space, $Y$ be NVS, $T:X\rightarrow Y$ bounded linear map such that $B_Y\subset \overline{T(B_X)}$.  Show that $B_Y \subset T(2B_X)$. Deduce that $Y$ is complete.
+	
+\bigskip	
+	
+	(iii) Let $X$ and $Y$ be NVS, $T \in L(X,Y)$. Show that the followings are equivalent:
+	
+	(a) $T$ is open.
+	
+	(b) $T$ sends a neighbourhood of $0$ to a neighbourhood of $0$.
+	
+	(c) There exists $k>0$ such that $B_Y\subset kT(B_X)$.
+	
+	(d) There exists $k>0$ such that for all $y\in Y$, there exists $x \in X$ with $Tx = y$ and $\|x\| \leq k\|y\|$.
+	
+	\bigskip
+	
+	(iv) Let $X$ be a Banach space, $Y$ be NVS, $T:X\rightarrow Y$ bounded linear map such that $B_Y\subset \overline{T(B_X)}$.  Show that $T$ is open.
+\end{question}
+
+
+\begin{question}{1.5(Product of Normed Spaces)}
+	Let $X$ and $Y$ be NVS. 
+	
+	(i) What is $X \oplus_p Y$ for $p \in [1,\infty)$? What is $X \oplus_\infty Y$? Show that for $a,b \geq 0$, $\lim_{p \rightarrow \infty} (a^p + b^p)^{1/p} = \max\{a,b\}$. 
+	
+	(ii) Let $X$ be a set and $d_1, d_2$ be metrics on $X$. Show that $d_1$ and $d_2$ induce the same topology if and only if they have the same convergent sequences(i.e. $x_n \rightarrow x$ under $d_1$ if and only if $x_n \rightarrow x$ under $d_2$).
+	
+	(iii) Show that $X\oplus_p Y$ have the same topology for all $p \in [1,\infty]$.
+\end{question}
+
+\begin{question}{1.6(Quotient Norm)}
+	Let $X$ be NVS and $N$ be a closed subspace of $X$, $\pi:X \rightarrow X/N$ be the quotient map. 
+	
+	(i) Let $\|\pi(x)\| = \inf\{\|y\|: y \in \pi(x)\}$ for all $x \in X$. Show that this defines a norm on $X/N$. Equip $X/N$ with this norm from now on.
+	
+	(ii) Show that $\pi$ is bounded with $\|\pi\| \leq 1$.
+	
+	(iii) Show that if $X$ is complete, then $X/N$ is complete.
+	
+	(iv) Let $T \in L(X,Y)$ and $N \subset \ker T$, then we know from linear algebra that $T$ induces linear map $\tilde{T}:X/N \rightarrow Y$ by $\tilde{T}(x + N) = Tx$. Show that $\tilde{T}$ is bounded with $\|\tilde{T}\| \leq \|T\|$.
+	
+\end{question}
+
+
+\section{Baire Category Theorem and  Applications}
+\begin{question}{2.1(Baire Category Theorem)}
+	(i) Let $X$ be a complete metric space, $(O_n)$ be a sequence of open dense sets in $X$. Show that $\bigcap_{n\in \N}O_n$ is dense in $X$.
+	
+	(ii) Deduce that if $X$ is non-empty and $(F_n)$ is a sequence of closed sets such that $X = \bigcup_{n\in \N}F_n$, then some $F_n$ has non-empty interior.
+	
+	(iii) Let $X$ be a topological space. When is $A\subset X$ nowhere dense? When is $A\subset X$ meagre? Show that $A$ is nowhere dense if and only if $\bar A$ is nowhere dense. 
+	
+	(iv) Show that if metric space $X$ is complete then $X$ is non-meagre.
+\end{question}
+
+\begin{question}{2.2(Uniform Boundedness)}
+	(i) Let $(f_n)$ be a pointwise bounded sequence of functions in $C[0,1]$, show that there exists interval $(a,b) \subset C[0,1]$ such that $(f_n)$ is uniformly bounded on $(a,b)$. 
+	
+	(ii) Let $X$ be Banach space and $Y$ be NVS. Let $A \subset L(X,Y)$. Suppose $A$ is pointwise bounded, show that $A$ is bounded.
+	
+	(iii) Let $X$ be Banach space and $Y$ be NVS. Let $(T_n)$ be a sequence in $L(X,Y)$ converging pointwise to some $T:X\rightarrow Y$. Show that $T \in L(X,Y)$.
+\end{question}
+
+\begin{question}{2.3(Open Mapping Theorem)}
+	(i) Let $X$ and $Y$ be Banach spaces, and $T\in L(X,Y)$ be surjective. Show that $T$ is open.
+
+	(ii) Let $X$ and $Y$ be Banach spaces, and $T\in L(X,Y)$ be bijective. Show that $T$ is an isomorphism.
+	
+	(iii) Let $X$ and $Y$ be Banach spaces, and $T \in L(X,Y)$ be surjective. Show that $X/(\ker T)$ is isomorphic to $Y$ as NVS.
+	
+	(iv) Let $\|\cdot\|_1$ and $\|\cdot\|_2$ be complete norms on vector space $V$. Suppose there exists $c > 0$ such that $\|x\|_1 \leq c\|x\|_2$ for all $x \in V$, show that $\|\cdot\|_1$ and $\|\cdot\|_2$ are equivalent.
+\end{question}
+
+\begin{question}{2.4(Closed Graph Theorem)}
+	Let $f:X\rightarrow Y$, what is the graph of $f$?
+	
+	(i) Let $X$ and $Y$ be metric spaces and $f$ be continuous. Show that $\graph(f)$ is closed.
+	
+	(ii) Let $X$ and $Y$ be Banach spaces and $T:X\rightarrow Y$ be linear. Show that $T$ is continuous if and only if $\graph(T)$ is closed.
+	
+	\bigskip
+	
+	(iii) Let $X$ and $Y$ be Banach spaces and $T:X\rightarrow Y$ be a linear map. Show that the followings are equivalent:
+	
+	(a) $\graph(T)$ is closed.
+	
+	(b) $T$ is continuous.
+	
+	(c) If $(x_n,Tx_n)\rightarrow (x,y)$, then $y = Tx$.
+	
+	(d) If $x_n \rightarrow x$ and $Tx_n \rightarrow y$, then $y = Tx$.
+	
+	(e) If $x_n \rightarrow 0$ and $Tx_n \rightarrow y$, then $y = 0$.
+	
+	\bigskip
+	
+	(iv) Let $X$ be a Banach space with closed subspaces $Y$ and $Z$ such that $X = Y \oplus Z$. Show that projection $\pi: X \rightarrow Y$ is continuous.
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Comments, Hints, and Answers to Selected Questions}
+\begin{onquestion}{1.2}
+	(i) A \textit{finite-rank operator} between normed spaces $X$ and $Y$ is a \textbf{bounded} linear map $T:X\rightarrow Y$ such that $T(X)$ is finite-dimensional. Suppose we ignore the boundedness condition, then $T$ may not be bounded.  A canonical counterexample is as follows. Let $X$ be infinite dimensional and $Y = \R$. Let $\{e_n\}_{n\in \N}$ be an infinite independent set, WLOG $||e_n|| = 1$ for all $n$. Extend $\{e_n\}_{n\in \N}$ to a basis of $X$, define $Te_n = n$ for all $n$ and define $Te = 0$ for other basis elements.  Then $T$ is unbounded.
+	
+	(ii) Let $X$ be a normed vector space, then any compact set $K \subset X$ is bounded.
+	
+	(iv) Equivalent definition of precompactness: let $X$ be a metric space, $A \subset X$ is precompact if and only if $\bar{A}$ is compact if and only if every sequence in $A$ has a convergent subsequence. Exercise: show equivalence.
+\end{onquestion}
+
+\begin{onquestion}{1.4}
+	(i) Note that the space of eventually zero sequences $c_{00}$ is dense in $\ell_p$ for all $p\in [1,\infty)$.
+	
+	(ii) Let $X$ be a topological space and $S \subset X$, let $f:X \rightarrow X$ be a homeomorphism, then $\overline{f(S)} = f(\overline{S})$. This result applies here by $\lambda \overline{T(B_X)} = \overline{\lambda T(B_X)}$ for $\lambda \not = 0$. Another point is that you can deduce $T$ is surjective from (ii). Moreover, if $T$ is not surjective, then $T$ is not open.
+	
+	(iii) Our convention here is that a neighbourhood is not necessarily open.
+\end{onquestion}
+
+\begin{onquestion}{1.5}
+	(i) Hint: if $a>b$, consider $(a^p+b^p)^{1/p} = a (1 + (b/a)^p)^{1/p}$. We have shown that the notation $X\oplus_\infty Y$ makes sense.
+	
+	(ii) Hint: one direction is clear. For the other direction, consider for $S$ subset of a metric space $X$, $x \in X$ is a limit point of $S$ if and only if there exists a sequence $(x_n)$ in $S$ converging to $x$.
+	
+	(iii) Hint: use part (ii), show that $X\oplus_p Y$ has the same convergent sequences as the product space $X\times Y$, i.e. $(x_n,y_n)\rightarrow (x,y)$ if and only if $x_n \rightarrow x$ and $y _n \rightarrow y$. Slogan: convergence if and only if pointwise convergence.
+\end{onquestion}
+
+\begin{onquestion}{1.6}
+	(i) If $N$ is not closed, then $\|\pi(x)\|$ fails to be positive definite, i.e. $\|\pi(x)\| = 0$ does not imply that $\pi(x) = N$. In this case, we have a semi-norm.
+\end{onquestion}
+
+\begin{onquestion}{2.1}
+	(iii) Let $X$ be a topological space and $U$ be an open subset of $X$. $S \subset X$ is \textit{dense in $U$} if $S\cap U$ is dense in $U$ with respect to the subspace topology. $S$ is \textit{nowhere dense} if $S$ is not dense in any $U \subset X$ open. $S$ is \textit{rare} if $\bar{S}$ has empty interior. Exercise 1: show that $S$ is rare if and only if $S$ is nowhere dense.  Exercise 2: show that $S$ is nowhere dense if and only if $S^\complement$ has dense interior. Deduce that for $F \subset X$ closed, $F$ is nowhere dense if and only if $F^\complement$ is dense.
+	
+\end{onquestion}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
